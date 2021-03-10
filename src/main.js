@@ -4,6 +4,8 @@ import store from "./store";
 
 
 Vue.config.productionTip = false;
+import VueTree from '@ssthouse/vue-tree-chart'
+Vue.component('vue-tree', VueTree)
 
 new Vue({
   store,
