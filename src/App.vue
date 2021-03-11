@@ -2,18 +2,18 @@
   <div id="app">
     <div class="container">
       <vue-tree
-        style="width: 1000px; height: 600px;"
+        style="width: 1400px; height: 1000px;"
         :dataset="richMediaData"
         :config="treeConfig"
       >
         <template v-slot:node="{ node, collapsed }">
           <div
-            class="rich-media-node"
+            class="node"
             :style="{ border: collapsed ? '2px solid grey' : '' }"
           >
-            <span style="padding: 4px 0; font-weight: bold;">{{
-              node.name
-            }}</span>
+            <h4 class="node__title">{{ node.nome }}</h4>
+            <p>{{ node.cargo }}</p>
+            <span>{{ node.equipe }}</span>
           </div>
         </template>
       </vue-tree>
@@ -41,18 +41,24 @@ export default {
   flex-direction: column;
   align-items: center;
   background: #14151f;
-  height: 100vh;
+  min-height: 100vh;
+  height: 100%;
 }
 
-.rich-media-node {
+.node {
   width: 80px;
   padding: 8px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
   color: white;
   background-color: #232436;
   border-radius: 4px;
+
+  &__title {
+      text-align: center;
+      padding: 8px 0;
+  }
 }
 </style>
